@@ -1,0 +1,45 @@
+﻿<Window x:Class="wpf_legado_moyu.SettingWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    Height="260" 
+    Width="265"
+    Title="设置"
+    WindowStartupLocation="CenterScreen"
+      xmlns:local="clr-namespace:wpf_legado_moyu"
+        xmlns:au="clr-namespace:WpfAutoGrid;assembly=WpfAutoGrid.Core"
+    >
+    <Window.Resources>
+        <local:ChceckRateConverter x:Key="ChceckRate" />
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Resources>
+    <au:AutoGrid RowCount="8" ColumnCount="2" Columns="auto,1*">
+        <Label Content="文字大小"/>
+        <TextBox Text="{Binding FontSize,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="背景透明度" />
+        <TextBox Text="{Binding BackgroundOpacity,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+        <Label Content="朗读速度" />
+        <TextBox Text="{Binding Rate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource ChceckRate}}" />
+        <Label Content="IP" />
+        <au:AutoGrid ColumnCount="2" Columns="1*,auto">
+            <TextBox Grid.Column="0" Text="{Binding Host,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0" />
+            <Button Grid.Column="1" Content="确定" Click="OnRefreshClick" Width="52"/>
+        </au:AutoGrid>
+        <Label Content="背景颜色" />
+        <Rectangle x:Name="bgColor" Fill="{Binding BackgroundColor}" Height="30" Width="30" Stroke="Black" MouseDown="bgColor_MouseDown" HorizontalAlignment="Left"/>
+        <Label Content="文字颜色" />
+        <Rectangle x:Name="fontColor" Fill="{Binding FontColor}" Height="30" Width="30" Stroke="Black" MouseDown="fontColor_MouseDown" HorizontalAlignment="Left"/>
+        <Label Content="阴影颜色" />
+        <Rectangle x:Name="fontEffectColor" Fill="{Binding FontEffectColor}" Height="30" Width="30" Stroke="Black" MouseDown="fontEffectColor_MouseDown" HorizontalAlignment="Left"/>
+        <Label Content="阴影透明度" />
+        <TextBox Text="{Binding FontEffectOpacity,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+    </au:AutoGrid>
+</Window>

@@ -1,0 +1,117 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+        
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        
+        xmlns:local="clr-namespace:wpf_legado_moyu" 
+        d:DataContext="{d:DesignInstance Type=local:AppData}" 
+        x:Name="window" 
+        x:Class="wpf_legado_moyu.MainWindow"
+        mc:Ignorable="d"
+        
+        Width="800"
+        Height="130"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown_1" 
+        Closed="Window_Closed"
+        ShowInTaskbar="False"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Topmost="True"
+        >
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="20"/>
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <Style x:Key="btnStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="置顶" IsChecked="{Binding Path=IsTopmost}" Click="OnMenuTopmostClick"/>
+            <MenuItem Header="穿透" IsChecked="{Binding Path=IsAlpha}" Click="OnMenuAlphaClick"/>
+            <MenuItem Header="自动" IsChecked="{Binding Path=IsAuto}" Click="OnMenuAutoClick"/>
+            <MenuItem Header="设置" Click="OnMenuSettingClick"/>
+            <MenuItem Header="书库" Click="OnMenuBookListClick"/>
+            <MenuItem Header="退出" Click="OnMenuCloseClick"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+
+    <Window.Background>
+        <SolidColorBrush Opacity="{Binding Config.BackgroundOpacity}" Color="{Binding Config.BackgroundColor}"/>
+    </Window.Background>
+
+    <Grid>
+        <!--<Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="White"/>-->
+        <tb:TaskbarIcon x:Name="taskbarIcon" ToolTipText="阅读" IconSource="/Resource/header.ico"  TrayMouseDoubleClick="taskbarIcon_TrayMouseDoubleClick" >
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu >
+                    <MenuItem Header="置顶" IsChecked="{Binding Path=IsTopmost}" Click="OnMenuTopmostClick"/>
+                    <MenuItem Header="穿透" IsChecked="{Binding Path=IsAlpha}" Click="OnMenuAlphaClick"/>
+                    <MenuItem Header="自动" IsChecked="{Binding Path=IsAuto}" Click="OnMenuAutoClick"/>
+                    <MenuItem Header="设置" Click="OnMenuSettingClick"/>
+                    <MenuItem Header="书库" Click="OnMenuBookListClick"/>
+                    <MenuItem Header="退出" Click="OnMenuCloseClick"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+        <TextBox Name="txt_curTxt" 
+                 d:Text="这是一段测试文本"
+                 d:Foreground="White"
+                 TextAlignment="Center" 
+                 TextWrapping="Wrap" 
+                 FontFamily="微软雅黑"
+                 MouseDown="txt_curTxt_MouseDown"
+                 Text="{Binding CurText}"
+                 FontSize="{Binding Config.FontSize}" 
+                 BorderBrush="Black"
+                 Width="auto"
+                 Height="auto"
+                 Foreground="{Binding Config.FontColor}"
+                 IsReadOnly="True" 
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 IsEnabled="false"
+                 Style="{StaticResource btnStyle}"
+                 >
+
+            <!--黑色阴影，假描边-->
+            <TextBox.Effect>
+                <DropShadowEffect Color="{Binding Config.FontEffectColor}" ShadowDepth="1" Opacity="{Binding Config.FontEffectOpacity}" />
+            </TextBox.Effect>
+
+            <!--前景色渐变-->
+            <!--<TextBox.Foreground>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" Opacity="0.8">
+                    <GradientStop Offset="0.0" Color="#E3B9FF" />
+                    <GradientStop Offset="0.7" Color="#8EFFC1" />
+                    <GradientStop Offset="1.0" Color="#E3B9FF" />
+                </LinearGradientBrush>
+            </TextBox.Foreground>-->
+
+            <!--关闭(白底)背景色-->
+            <!--<TextBox.Background>
+                <SolidColorBrush Opacity="0"/>
+            </TextBox.Background>-->
+
+            <!--关闭边框-->
+            <TextBoxBase.BorderThickness>
+                <Thickness Bottom="0" Top="0" Left="0" Right="0"/>
+            </TextBoxBase.BorderThickness>
+        </TextBox>
+    </Grid>
+</Window>

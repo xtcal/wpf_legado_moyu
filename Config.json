@@ -1,0 +1,14 @@
+{
+    "Config": {
+        "FontSize": 15,
+        "BackgroundColor": "#000000",
+        "FontColor": "#FFC0C0C0",
+        "Host": "192.168.41.10:1122",
+        "Rate": 3,
+        "LastWindowPos": "467,968,976,55"
+    },
+    "CurLine": 12,
+    "CurChapterIdx": 250,
+    "CurBookUrl": "https://api-bc.wtzw.com/api/v4/book/detail?&id=143185&imei_ip=2937357107&teeny_mode=0&sign=e727b2db04618c29e4e369f3338db936,{\"headers\":{\"app-version\":\"51110\",\"platform\":\"android\",\"reg\":\"0\",\"AUTHORIZATION\":\"\",\"application-id\":\"com.****.reader\",\"net-env\":\"1\",\"channel\":\"unknown\",\"qm-params\":\"\",\"sign\":\"fc697243ab534ebaf51d2fa80f251cb4\"}}",
+    "IsAlpha": true
+}
