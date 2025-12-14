@@ -1,21 +1,23 @@
 # wpf_legado_moyu
+如题，用wpf写的，借用Legado的Web服务功能，假装自己在认真上班实则在摸鱼看小说hhhh
+![1765686412719](image/README/1765686412719.png)
+![1765685458367](image/README/1765685458367.gif)
 
-# 参考
-- wpf设置字体颜色渐变和字体阴影 (样式)
-  - https://www.cnblogs.com/changbaishan/p/4358341.html
-- WPF知识点--渐变色
-  - https://www.cnblogs.com/kuangxiangnice/p/5820631.html
-- WPF简单导航框架（Window与Page互相调用）
-  - https://blog.csdn.net/lordwish/article/details/52667150
-- wpf关于窗口的一些设置属性
-  - https://www.jianshu.com/p/e6971f2ea997
-- 关于WPF的弹出窗口(线程阻塞)
-  - https://www.jianshu.com/p/f145ae166d2c
-- WPF 触发器Triggers
-  - https://www.cnblogs.com/greenteaone/archive/2012/12/17/2811082.html
-- WPF 透明窗口可以调整尺寸（通过拖拽窗口边缘）
-  - https://zhuanlan.zhihu.com/p/102784143
-- C# WPF全局捕获异常 防止程序崩溃闪退
-  - https://blog.csdn.net/admans/article/details/102668516
-- WPF数据绑定之INotifyPropertyChanged用法
-  - https://zhuanlan.zhihu.com/p/671824577
+# 快捷键
+- `Win + 小键盘4` 上一段
+- `Win + 小键盘6` 下一段
+- `Win + 小键盘5` 隐藏
+
+# 功能
+- [x] 置顶，透明框，拖拽，缩放，调整字号，调整阴影
+- [x] 语音播报自动阅读（`System.Speech`）
+- [x] 同步阅读章节进度
+- [ ] 设置快捷键
+- [ ] 拆分过长段落
+  
+# 开发
+- Vs2022+
+- .Net8.0
+
+# 借用
+- [WPF中的DataGrid自动行列显示 ](https://www.cnblogs.com/chenshibao/p/18642334)
