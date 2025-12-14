@@ -3,6 +3,10 @@ using System.Windows.Controls;
 
 namespace wpf_legado_moyu;
 
+/// <summary>
+/// WPF中的DataGrid自动行列显示 
+/// https://www.cnblogs.com/chenshibao/p/18642334
+/// </summary>
 static class GridAssist {
     #region AutoRowColumn
 
